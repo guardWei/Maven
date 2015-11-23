@@ -7,7 +7,6 @@
 <title>显示用户名</title>
 </head>
 <body>
-<h2>Hello World!</h2>
-<a href="http://localhost:8080/Maven/userController/showUser?id=1">查看用户名</a>
+   用户名：${user.name}
 </body>
-</htm
+</html>

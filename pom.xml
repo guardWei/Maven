@@ -26,12 +26,6 @@
 			<artifactId>aspectjweaver</artifactId>
 			<version>1.8.7</version>
 		</dependency>
-		<!-- spring的测试 -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-test</artifactId>
-			<version>4.2.3.RELEASE</version>
-		</dependency>
 		<!-- springMvc -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -49,7 +43,7 @@
 			<artifactId>mybatis</artifactId>
 			<version>3.3.0</version>
 		</dependency>
-		
+
 		<!-- mysql数据库连接驱动 -->
 		<dependency>
 			<groupId>mysql</groupId>
@@ -62,7 +56,24 @@
 			<artifactId>druid</artifactId>
 			<version>1.0.16</version>
 		</dependency>
-		
+        <!-- json插件 -->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.9.13</version>
+		</dependency>
+		<!-- 文件上传 -->
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.2.2</version>
+		</dependency>
+		<!-- Servlet -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>3.0-alpha-1</version>
+		</dependency>
 	</dependencies>
 	<build>
 	</build>
