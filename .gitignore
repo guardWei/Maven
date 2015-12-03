@@ -12,3 +12,4 @@ indexes/
 *.mwb.bak
 .reviewboardrc
 /target
+/MavenLearn.log
