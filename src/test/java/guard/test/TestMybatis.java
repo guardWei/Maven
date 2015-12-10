@@ -3,6 +3,8 @@ package guard.test;
 import guard.model.User;
 import guard.service.UserServiceI;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
@@ -29,5 +31,18 @@ public class TestMybatis {
 	public void testSpringMyBatis() {
 		User u = userServiceI.getUserById(new Long(1));
 		logger.info(JSON.toJSONStringWithDateFormat(u, "yyyy-MM-dd"));
+	}
+	
+	@Test
+	public void test1(){
+		List<User> userList = userServiceI.getAllUsers();
+		logger.info(JSON.toJSONStringWithDateFormat(userList,"yyyy-MM-dd"));
+	}
+	
+	@Test
+	public void test2(){
+		List<User> userList = userServiceI.getAllUsersWithCourses();
+		logger.info(JSON.toJSONStringWithDateFormat(userList,"yyyy-MM-dd"));
+		//logger.info(userList.get(0).getuCourses().get(0).getCourseName());
 	}
 }

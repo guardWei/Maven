@@ -1,82 +1,115 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="guard.dao.UserMapper" >
-  <resultMap id="BaseResultMap" type="guard.model.User" >
-    <id column="id" property="id" jdbcType="BIGINT" />
-    <result column="name" property="name" jdbcType="VARCHAR" />
-    <result column="age" property="age" jdbcType="INTEGER" />
-    <result column="birthday" property="birthday" jdbcType="DATE" />
-  </resultMap>
-  <sql id="Base_Column_List" >
-    id, name, age, birthday
-  </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
-    select 
-    <include refid="Base_Column_List" />
-    from user
-    where id = #{id,jdbcType=BIGINT}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
-    delete from user
-    where id = #{id,jdbcType=BIGINT}
-  </delete>
-  <insert id="insert" parameterType="guard.model.User" >
-    insert into user (id, name, age, 
-      birthday)
-    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, 
-      #{birthday,jdbcType=DATE})
-  </insert>
-  <insert id="insertSelective" parameterType="guard.model.User" >
-    insert into user
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
-      <if test="name != null" >
-        name,
-      </if>
-      <if test="age != null" >
-        age,
-      </if>
-      <if test="birthday != null" >
-        birthday,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=BIGINT},
-      </if>
-      <if test="name != null" >
-        #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="age != null" >
-        #{age,jdbcType=INTEGER},
-      </if>
-      <if test="birthday != null" >
-        #{birthday,jdbcType=DATE},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="guard.model.User" >
-    update user
-    <set >
-      <if test="name != null" >
-        name = #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="age != null" >
-        age = #{age,jdbcType=INTEGER},
-      </if>
-      <if test="birthday != null" >
-        birthday = #{birthday,jdbcType=DATE},
-      </if>
-    </set>
-    where id = #{id,jdbcType=BIGINT}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="guard.model.User" >
-    update user
-    set name = #{name,jdbcType=VARCHAR},
-      age = #{age,jdbcType=INTEGER},
-      birthday = #{birthday,jdbcType=DATE}
-    where id = #{id,jdbcType=BIGINT}
-  </update>
+<mapper namespace="guard.dao.UserMapper">
+	<resultMap id="BaseResultMap" type="guard.model.User">
+		<id column="id" property="id" jdbcType="BIGINT" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="age" property="age" jdbcType="INTEGER" />
+		<result column="birthday" property="birthday" jdbcType="DATE" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, name, age, birthday
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Long">
+		select
+		<include refid="Base_Column_List" />
+		from user
+		where id = #{id,jdbcType=BIGINT}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+		delete from user
+		where id = #{id,jdbcType=BIGINT}
+	</delete>
+	<insert id="insert" parameterType="guard.model.User">
+		insert into user (id, name,
+		age,
+		birthday)
+		values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR},
+		#{age,jdbcType=INTEGER},
+		#{birthday,jdbcType=DATE})
+	</insert>
+	<insert id="insertSelective" parameterType="guard.model.User">
+		insert into user
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="name != null">
+				name,
+			</if>
+			<if test="age != null">
+				age,
+			</if>
+			<if test="birthday != null">
+				birthday,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=BIGINT},
+			</if>
+			<if test="name != null">
+				#{name,jdbcType=VARCHAR},
+			</if>
+			<if test="age != null">
+				#{age,jdbcType=INTEGER},
+			</if>
+			<if test="birthday != null">
+				#{birthday,jdbcType=DATE},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="guard.model.User">
+		update user
+		<set>
+			<if test="name != null">
+				name = #{name,jdbcType=VARCHAR},
+			</if>
+			<if test="age != null">
+				age = #{age,jdbcType=INTEGER},
+			</if>
+			<if test="birthday != null">
+				birthday = #{birthday,jdbcType=DATE},
+			</if>
+		</set>
+		where id = #{id,jdbcType=BIGINT}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="guard.model.User">
+		update user
+		set
+		name = #{name,jdbcType=VARCHAR},
+		age = #{age,jdbcType=INTEGER},
+		birthday = #{birthday,jdbcType=DATE}
+		where id = #{id,jdbcType=BIGINT}
+	</update>
+
+	<select id="getAllUsers" resultMap="BaseResultMap">
+		select * from user
+	</select>
+
+    <resultMap type="guard.model.User" id="UserWithCourse" extends="BaseResultMap">
+        <collection property="uCourses" javaType="list" ofType="guard.model.Course">
+            <id property="id" column="courseId"></id>
+            <result property="courseName" column="course_name" />
+            <result property="courseTeacher" column="course_teacher" />
+        </collection>
+    </resultMap>
+	<select id="getAllUsersWithCourses" resultMap="UserWithCourse">
+		SELECT
+		`user`.id,
+		`user`.`name`,
+		`user`.age,
+		`user`.birthday,
+		user_course.id,
+		user_course.user_id,
+		user_course.course_id,
+		course.course_name,
+		course.course_teacher,
+		course.id  courseId  <!-- id重复，映射时不知道是哪个所有需要加别名，对应上面column -->
+		FROM
+		`user`
+		JOIN user_course ON `user`.id = user_course.user_id
+		JOIN course ON user_course.course_id = course.id
+	</select>
 </mapper>

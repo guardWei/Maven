@@ -1,8 +1,11 @@
 package guard.model;
 
 import java.util.Date;
+import java.util.List;
 
 public class User {
+	private List<Course> uCourses;
+	
     private Long id;
 
     private String name;
@@ -11,7 +14,15 @@ public class User {
 
     private Date birthday;
 
-    public Long getId() {
+	public List<Course> getuCourses() {
+		return uCourses;
+	}
+
+	public void setuCourses(List<Course> uCourses) {
+		this.uCourses = uCourses;
+	}
+
+	public Long getId() {
         return id;
     }
 

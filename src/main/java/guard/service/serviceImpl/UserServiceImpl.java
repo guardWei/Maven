@@ -1,5 +1,7 @@
 package guard.service.serviceImpl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,8 +22,18 @@ public class UserServiceImpl implements UserServiceI {
 		this.userMapper = userMapper;
 	}
 
+	
+	
 	public User getUserById(Long id) {
 		return userMapper.selectByPrimaryKey(id);
+	}
+	
+	public List<User> getAllUsers() {
+		return userMapper.getAllUsers();
+	}
+
+	public List<User> getAllUsersWithCourses() {
+		return userMapper.getAllUsersWithCourses();
 	}
 
 }
