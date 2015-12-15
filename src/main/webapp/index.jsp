@@ -8,6 +8,6 @@
 </head>
 <body>
 <h2>Hello World!</h2>
-<a href="http://localhost:8080/Maven/userController/showUser?id=1">查看用户名</a>
+<a href="http://localhost:8080/Maven/userController/showUser?id=1&birthday=1993-03-01">查看用户名</a>
 </body>
 </htm

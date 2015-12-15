@@ -36,4 +36,8 @@ public class UserServiceImpl implements UserServiceI {
 		return userMapper.getAllUsersWithCourses();
 	}
 
+	public void saveUser(User user) {
+		userMapper.insert(user);
+	}
+
 }

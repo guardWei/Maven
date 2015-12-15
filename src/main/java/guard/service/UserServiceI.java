@@ -24,4 +24,10 @@ public interface UserServiceI {
     * @version 2015年12月10日15:57:37
     */
    public List<User> getAllUsersWithCourses();
+   /**
+    * 保存用户信息
+    * @author guard
+    * @version 2015年12月15日19:25:03
+    */
+   public void saveUser(User user);
 }
