@@ -20,4 +20,6 @@ public interface UserMapper {
     List<User> getAllUsers();
     
     List<User> getAllUsersWithCourses();
+    
+    User getUserByIdWithCourses(Long id);
 }

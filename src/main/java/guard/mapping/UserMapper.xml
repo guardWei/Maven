@@ -112,4 +112,22 @@
 		JOIN user_course ON `user`.id = user_course.user_id
 		JOIN course ON user_course.course_id = course.id
 	</select>
+	<select id="getUserByIdWithCourses" resultMap="UserWithCourse">
+	    SELECT
+		`user`.id,
+		`user`.`name`,
+		`user`.age,
+		`user`.birthday,
+		user_course.id,
+		user_course.user_id,
+		user_course.course_id,
+		course.course_name,
+		course.course_teacher,
+		course.id  courseId  <!-- id重复，映射时不知道是哪个所有需要加别名，对应上面column -->
+		FROM
+		`user`
+		JOIN user_course ON `user`.id = user_course.user_id
+		JOIN course ON user_course.course_id = course.id
+		where `user`.id = #{id,jdbcType=BIGINT}
+	</select>
 </mapper>

@@ -13,6 +13,14 @@ public interface UserServiceI {
 	 */
    public User getUserById(Long id);
    /**
+    * 根据id查询用户,同时查出课程
+    * @author guard
+    * @version 2015年12月22日17:46:39
+    * @param id
+    * @return
+    */
+   public User getUserByIdWithCourses(Long id);
+   /**
     * 获取所有的用户
     * @author guard
     * @version 2015年12月10日15:16:16

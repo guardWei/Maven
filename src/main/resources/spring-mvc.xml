@@ -11,7 +11,10 @@
 			http://www.springframework.org/schema/mvc 
 			http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 
-	<!-- 自动扫描controller包下的所有类，使其成为spring mvc的控制器 -->
+    <!--  mvc的注解驱动 --> 
+    <mvc:annotation-driven /> 
+    
+	<!-- 自动扫描controller包下的所有类，使其成为spring mvc的控制器(一旦有扫描器的定义mvc:annotation-driven不需要，扫描器已经有了注解驱动的功能) -->
 	<context:component-scan base-package="guard.controller" />
 
 	<!-- 避免IE执行AJAX时,返回JSON出现下载文件 -->

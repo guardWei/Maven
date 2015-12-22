@@ -28,6 +28,10 @@ public class UserServiceImpl implements UserServiceI {
 		return userMapper.selectByPrimaryKey(id);
 	}
 	
+	public User getUserByIdWithCourses(Long id) {
+		return userMapper.getUserByIdWithCourses(id);
+	}
+	
 	public List<User> getAllUsers() {
 		return userMapper.getAllUsers();
 	}

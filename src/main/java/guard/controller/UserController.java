@@ -9,6 +9,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.ServletRequestDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -59,6 +60,19 @@ public class UserController {
 		return "showUser";
 	}
 	
+	/**
+	 * 根据User的获取User对象
+	 * @author guard
+	 * @version 2015年12月22日16:53:40
+	 * @param uid
+	 * @param model
+	 */
+	@RequestMapping("/getUserById")
+	public String getUserByIdWithCourses(String uid,Model model){
+		User u = userServiceI.getUserByIdWithCourses(Long.parseLong(uid));
+		model.addAttribute("user", u);//相当于把参数值放在request对象里面去
+		return "getUserById";
+	}
 	/**
 	 * 注册时间类型的属性编辑器
 	 * @author guard
