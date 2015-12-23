@@ -19,7 +19,7 @@
 	<fmt:formatDate value="${user.birthday }" pattern="yyyy/MM/dd" />
 	</br>
 	<table border="1">
-	<tr><tb>课程id</tb><tb>课程名</tb><tb>任课老师</tb></tr>
+	<tr><td>课程id</td><td>课程名</td><td>任课老师</td></tr>
 		<c:forEach items="${user.uCourses }" var="couser">
            <tr><td>${couser.id }</td><td>${couser.courseName}</td><td>${couser.courseTeacher }</td></tr>
 		</c:forEach>
