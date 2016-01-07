@@ -1,0 +1,20 @@
+telnet smtp.163.com 25
+ehlo xxx
+auth login
+Z3VhcmRfd2VpQDE2My5jb20=
+end3MzczMjU3OTE5
+mail from:<guard_wei@163.com>
+                        //mail from:<zhangww1@dagene.net>
+rcpt to:<1946952436@qq.com>;<guard_wei@163.com>
+                    
+data
+from:<guard_wei@163.com>
+to:<1946952436@qq.com>
+subject:这是一个测试邮件. 
+
+测试文件内容！！<a href="www.baidu.com">百度</a>
+.
+
+
+
+helo localhost
