@@ -1,8 +1,8 @@
-package guard.service;
+package guard.mybatis.service;
 
 import java.util.List;
 
-import guard.model.User;
+import guard.mybatis.model.User;
 
 public interface UserServiceI {
 	/**

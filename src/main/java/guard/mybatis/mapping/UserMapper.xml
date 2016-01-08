@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="guard.dao.UserMapper">
-	<resultMap id="BaseResultMap" type="guard.model.User">
+<mapper namespace="guard.mybatis.dao.UserMapper">
+	<resultMap id="BaseResultMap" type="guard.mybatis.model.User">
 		<id column="id" property="id" jdbcType="BIGINT" />
 		<result column="name" property="name" jdbcType="VARCHAR" />
 		<result column="age" property="age" jdbcType="INTEGER" />
@@ -21,7 +21,7 @@
 		delete from user
 		where id = #{id,jdbcType=BIGINT}
 	</delete>
-	<insert id="insert" parameterType="guard.model.User">
+	<insert id="insert" parameterType="guard.mybatis.model.User">
 		insert into user (id, name,
 		age,
 		birthday)
@@ -29,7 +29,7 @@
 		#{age,jdbcType=INTEGER},
 		#{birthday,jdbcType=DATE})
 	</insert>
-	<insert id="insertSelective" parameterType="guard.model.User">
+	<insert id="insertSelective" parameterType="guard.mybatis.model.User">
 		insert into user
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="id != null">
@@ -60,7 +60,7 @@
 			</if>
 		</trim>
 	</insert>
-	<update id="updateByPrimaryKeySelective" parameterType="guard.model.User">
+	<update id="updateByPrimaryKeySelective" parameterType="guard.mybatis.model.User">
 		update user
 		<set>
 			<if test="name != null">
@@ -75,7 +75,7 @@
 		</set>
 		where id = #{id,jdbcType=BIGINT}
 	</update>
-	<update id="updateByPrimaryKey" parameterType="guard.model.User">
+	<update id="updateByPrimaryKey" parameterType="guard.mybatis.model.User">
 		update user
 		set
 		name = #{name,jdbcType=VARCHAR},
@@ -88,8 +88,8 @@
 		select * from user
 	</select>
 
-    <resultMap type="guard.model.User" id="UserWithCourse" extends="BaseResultMap">
-        <collection property="uCourses" javaType="list" ofType="guard.model.Course">
+    <resultMap type="guard.mybatis.model.User" id="UserWithCourse" extends="BaseResultMap">
+        <collection property="uCourses" javaType="list" ofType="guard.mybatis.model.Course">
             <id property="id" column="courseId"></id>
             <result property="courseName" column="course_name" />
             <result property="courseTeacher" column="course_teacher" />

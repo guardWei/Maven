@@ -1,8 +1,5 @@
 package guard.test;
 
-import guard.model.User;
-import guard.service.UserServiceI;
-
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -12,6 +9,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.alibaba.fastjson.JSON;
+
+import guard.mybatis.model.User;
+import guard.mybatis.service.UserServiceI;
 
 public class TestMybatis {
 

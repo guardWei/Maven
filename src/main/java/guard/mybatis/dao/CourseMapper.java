@@ -1,6 +1,6 @@
-package guard.dao;
+package guard.mybatis.dao;
 
-import guard.model.Course;
+import guard.mybatis.model.Course;
 
 public interface CourseMapper {
     int deleteByPrimaryKey(Long id);

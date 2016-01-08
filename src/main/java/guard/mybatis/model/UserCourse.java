@@ -1,4 +1,4 @@
-package guard.model;
+package guard.mybatis.model;
 
 public class UserCourse {
     private String id;

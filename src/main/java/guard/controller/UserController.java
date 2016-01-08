@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.alibaba.fastjson.JSON;
 
-import guard.model.User;
-import guard.service.UserServiceI;
+import guard.mybatis.model.User;
+import guard.mybatis.service.UserServiceI;
 
 @Controller
 @RequestMapping(value = "/userController")

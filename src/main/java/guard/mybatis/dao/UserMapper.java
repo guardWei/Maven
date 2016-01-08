@@ -1,17 +1,17 @@
-package guard.dao;
+package guard.mybatis.dao;
 
 import java.util.List;
 
-import guard.model.User;
+import guard.mybatis.model.User;
 
 public interface UserMapper {
     int deleteByPrimaryKey(Long id);
 
-    int insert(User record);
+    int insert(guard.mybatis.model.User record);
 
-    int insertSelective(User record);
+    int insertSelective(guard.mybatis.model.User record);
 
-    User selectByPrimaryKey(Long id);
+    guard.mybatis.model.User selectByPrimaryKey(Long id);
 
     int updateByPrimaryKeySelective(User record);
 

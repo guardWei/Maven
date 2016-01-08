@@ -1,4 +1,4 @@
-package guard.model;
+package guard.mybatis.model;
 
 import java.util.Date;
 import java.util.List;

@@ -1,13 +1,13 @@
-package guard.service.serviceImpl;
+package guard.mybatis.service.serviceImpl;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import guard.dao.UserMapper;
-import guard.model.User;
-import guard.service.UserServiceI;
+import guard.mybatis.dao.UserMapper;
+import guard.mybatis.model.User;
+import guard.mybatis.service.UserServiceI;
 
 @Service("userService")
 public class UserServiceImpl implements UserServiceI {
