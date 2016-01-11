@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Hibernate Configuration File -->
+<!DOCTYPE hibernate-configuration PUBLIC 
+   "-//Hibernate/Hibernate Configuration DTD//EN"
+   "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<!-- Do not specify your JDBC driver Jar! -->
+		<!-- Settings for a remote Sybase database. -->
+
+		<property name="connection.url">
+			jdbc:mysql://localhost:3306/mybatis
+		</property>
+		<property name="dialect">
+			org.hibernate.dialect.MySQLDialect
+		</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">123456</property>
+		<property name="connection.driver_class">
+			com.mysql.jdbc.Driver
+		</property>
+		<!-- Print SQL to stdout. -->
+		<property name="show_sql">false</property>
+		<!--jdbc.batch_size是指Hibernate批量插入,删除和更新时每次操作的记录数。Batch Size越大， 批量操作的向数据库发送Sql的次数越少，速度就越快，同样耗用内存就越大 -->
+		<property name="hibernate.jdbc.batch_size">50</property>
+
+		<!--jdbc.fetch_size是指Hibernate每次从数据库中取出并放到JDBC的Statement中的记录条数。 Fetch Size设的越大，读数据库的次数越少，速度越快，Fetch 
+			Size越小，读数据库的次数越多，速度越慢 -->
+		<property name="jdbc.fetch_size">50</property>
+
+		<!-- 连接池 -->
+		<property name="hibernate.connection.provider_class">
+			org.hibernate.connection.C3P0ConnectionProvider
+		</property>
+
+		<!-- 间隔多少秒检查空闲的连接,这里为了测试设置为30秒 -->
+		<property name="hibernate.c3p0.idle_test_period">30</property>
+
+		<!-- hibernate.c3p0.timeout是设置c3p0.maxIdleTime,单位是秒 ,这里为了测试设置为30秒 -->
+		<property name="hibernate.c3p0.timeout">1000</property>
+
+		<!-- 最大连接数 -->
+		<property name="hibernate.c3p0.max_size">300</property>
+
+		<!-- 保持最小的连接数 -->
+		<property name="hibernate.c3p0.min_size">1</property>
+
+		<!-- 每次获取连接的数量 -->
+		<property name="hibernate.c3p0.acquire_increment">1</property>
+
+		<!-- 二级缓存 -->
+		<property name="hibernate.cache.use_second_level_cache">
+			true
+		</property>
+		<property name="hibernate.c3p0.max_statements">5</property>
+		<property name="cache.provider_class">
+			org.hibernate.cache.EhCacheProvider
+		</property>
+		<!-- 当事务结束的时候，不管是提交还是回滚，Hibernate也会把 Session从当前线程剥离，并且关闭它 -->
+		<property name="current_session_context_class">thread</property>
+		<!-- Mapping files -->
+		<!--每30秒检查所有连接池中的空闲连接。Default: 0 -->
+		<property name="maxIdleTime">30</property>
+
+        <mapping resource="guard/hibernate/entity/User.hbm.xml"/>
+	</session-factory>
+</hibernate-configuration>

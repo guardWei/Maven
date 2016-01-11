@@ -1,37 +1,40 @@
 package guard.hibernate.entity;
 
-import java.io.Serializable;
 import java.util.Date;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
 /**
  * 学生用户实体类
  * @author guard
  * @version 2016年1月8日15:45:37
  */
-@Entity
-@Table(name = "user")
-public class User implements Serializable{
-	
+
+public class User implements java.io.Serializable {
+
+	// Fields
 	private static final long serialVersionUID = 1L;
 	
 	private Long id;
+	private String name;
+	private Integer age;
+	private Date birthday;
 
-    private String name;
+	// Constructors
 
-    private Integer age;
+	/** default constructor */
+	public User() {
+	}
 
-    private Date birthday;
+	/** full constructor */
+	public User(String name, Integer age, Date birthday) {
+		this.name = name;
+		this.age = age;
+		this.birthday = birthday;
+	}
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+	// Property accessors
+
 	public Long getId() {
-		return id;
+		return this.id;
 	}
 
 	public void setId(Long id) {
@@ -39,7 +42,7 @@ public class User implements Serializable{
 	}
 
 	public String getName() {
-		return name;
+		return this.name;
 	}
 
 	public void setName(String name) {
@@ -47,7 +50,7 @@ public class User implements Serializable{
 	}
 
 	public Integer getAge() {
-		return age;
+		return this.age;
 	}
 
 	public void setAge(Integer age) {
@@ -55,11 +58,11 @@ public class User implements Serializable{
 	}
 
 	public Date getBirthday() {
-		return birthday;
+		return this.birthday;
 	}
 
 	public void setBirthday(Date birthday) {
 		this.birthday = birthday;
 	}
-    
+
 }
