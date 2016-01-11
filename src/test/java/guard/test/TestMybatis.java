@@ -22,7 +22,7 @@ public class TestMybatis {
     
 	@Before
 	public void statics() {
-	    ac = new ClassPathXmlApplicationContext(new String[] { "spring.xml", "spring-mybatis.xml" });
+	    ac = new ClassPathXmlApplicationContext(new String[] { "spring.xml", "spring-mybatis.xml" ,"spring-hibernate.xml"});
 	    userServiceI = (UserServiceI) ac.getBean("userService");
 	}
 

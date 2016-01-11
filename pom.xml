@@ -72,6 +72,12 @@
             <artifactId>hibernate-annotations</artifactId>
             <version>3.5.6-Final</version>
         </dependency>
+        <!-- spring与Hibernate整合 -->
+        <dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>3.1.2.RELEASE</version>
+		</dependency>
 		<!-- mysql数据库连接驱动 -->
 		<dependency>
 			<groupId>mysql</groupId>
