@@ -62,16 +62,18 @@
             <artifactId>hibernate-core</artifactId>
             <version>4.1.12.Final</version>
         </dependency>
-        <dependency>
+       <!--  <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
             <version>4.1.12.Final</version>
         </dependency>
+        这两个jar包含于Hibernate-core包中，所以不用（加入会导致依赖的slf4j与log4j包冲突）
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-annotations</artifactId>
             <version>3.5.6-Final</version>
-        </dependency>
+        </dependency> -->
+        
         <!-- spring与Hibernate整合 -->
         <dependency>
 			<groupId>org.springframework</groupId>
@@ -120,12 +122,14 @@
 			<version>1.2</version>
 			<type>jar</type>
 		</dependency>
+		<!-- 标准标签库 -->
 		<dependency>
 			<groupId>taglibs</groupId>
 			<artifactId>standard</artifactId>
 			<version>1.1.2</version>
 			<type>jar</type>
 		</dependency>
+		<!-- javaMail -->
 		<dependency>
             <groupId>javax.mail</groupId>
             <artifactId>mail</artifactId>
