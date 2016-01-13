@@ -91,14 +91,16 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
 			<tx:method name="remove*" />
 			<tx:method name="repair" />
 			<tx:method name="deleteAndRepair" />
-			<tx:method name="get*"/>
 			
-			<tx:method name="find*" propagation="SUPPORTS" />
-			<tx:method name="load*" propagation="SUPPORTS" />
-			<tx:method name="search*" propagation="SUPPORTS" />
-			<tx:method name="datagrid*" propagation="SUPPORTS" />
+			<!-- sessionFactory.getCurrentSession()方法取得的session，在做数据库操作时必须在事务中做，包括只读的查询，否则会报错。  -->
+			<!-- propagation="SUPPORTS" 时会报No Session found for current thread异常；若采用session与线程绑定，则会报createQuery is not valid without active transaction异常 -->
+			<tx:method name="get*"/><!-- propagation="REQUIRED"  由spring管理的时候必须要开启事务 -->
+			<tx:method name="find*"/>
+			<tx:method name="load*"/>
+			<tx:method name="search*"/>
+			<tx:method name="datagrid*"/>
 
-			<tx:method name="*" propagation="SUPPORTS" />
+			<tx:method name="*"/>
 		</tx:attributes>
 	</tx:advice>
 	<!-- 配置需要应用该事务拦截器的service -->
