@@ -11,6 +11,7 @@
 		<project.build.sourceEncoding>
 			UTF-8
 		</project.build.sourceEncoding>
+		<finalName>Maven</finalName>
 	</properties>
 	<dependencies>
 		<!-- junit -->
@@ -156,6 +157,19 @@
 				<encoding>UTF-8</encoding>
 			</configuration>
 		 </plugin>
+		 <!-- tomcat7自动部署插件 -->
+		 <plugin>  
+            <groupId>org.apache.tomcat.maven</groupId>  
+            <artifactId>tomcat7-maven-plugin</artifactId> 
+            <version>2.1</version> 
+            <configuration>  
+                <url>http://localhost:8080/manager/text</url>
+                <server>Tomcat7</server>
+                <username>root</username>  
+                <password>123456</password>  
+                <path>/${finalName}</path>  
+            </configuration>  
+         </plugin> 
 	   </plugins>
 	</build>
 </project>
