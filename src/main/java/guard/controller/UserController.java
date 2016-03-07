@@ -1,9 +1,11 @@
 package guard.controller;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -73,6 +75,25 @@ public class UserController {
 		model.addAttribute("user", u);//相当于把参数值放在request对象里面去
 		return "getUserById";
 	}
+	
+	/**
+	 * xmlHttpRequest获取数据
+	 * @author guard
+	 * @version 2016年3月7日10:40:13
+	 * @param request
+	 * @param response
+	 */
+	@RequestMapping("/xmlHttpRequest")
+	public void getData(HttpServletRequest request,HttpServletResponse response){
+		try {
+			response.setCharacterEncoding("UTF-8");
+			response.setContentType("text/html;charset=UTF-8");
+			response.getWriter().print("ajaxRequest请求成功！");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	/**
 	 * 注册时间类型的属性编辑器
 	 * @author guard
@@ -83,4 +104,5 @@ public class UserController {
 	public void initBinder(ServletRequestDataBinder binder){
 		binder.registerCustomEditor(Date.class, new CustomDateEditor(new SimpleDateFormat("yyyy-MM-dd"), true));
 	}
+	
 }

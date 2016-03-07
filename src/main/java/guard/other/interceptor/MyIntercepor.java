@@ -30,8 +30,10 @@ public class MyIntercepor implements HandlerInterceptor {
 	public void postHandle(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2, ModelAndView mv)
 			throws Exception {
          logger.info("postHandler...");
-         Map<String, Object> map = mv.getModel();
- 		 map.put("test", "append something");
+		if (mv != null) {
+			Map<String, Object> map = mv.getModel();
+			map.put("test", "append something");
+		}
 	}
 
 	/**
