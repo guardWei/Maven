@@ -18,6 +18,7 @@
 	</br> 生日：
 	<fmt:formatDate value="${user.birthday }" pattern="yyyy/MM/dd" />
 	</br>
+	<a href="userController/editUserById?uid=${user.id }">編輯</a>
 	<table border="1">
 	<tr><td>课程id</td><td>课程名</td><td>任课老师</td></tr>
 		<c:forEach items="${user.uCourses }" var="couser">

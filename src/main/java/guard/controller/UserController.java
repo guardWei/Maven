@@ -22,7 +22,7 @@ import guard.mybatis.model.User;
 import guard.mybatis.service.UserServiceI;
 
 @Controller
-@RequestMapping(value = "/userController")
+@RequestMapping(value = "userController")
 public class UserController {
 	private UserServiceI userServiceI;
 
@@ -74,6 +74,18 @@ public class UserController {
 		User u = userServiceI.getUserByIdWithCourses(Long.parseLong(uid));
 		model.addAttribute("user", u);//相当于把参数值放在request对象里面去
 		return "getUserById";
+	}
+	
+	/**
+	 * 编辑用户信息
+	 * @author guard
+	 * @date 2016年3月31日15:18:13
+	 */
+	@RequestMapping("editUserById")
+	public String editUser(String uid,Model model){
+		User u = userServiceI.getUserByIdWithCourses(Long.parseLong(uid));
+		model.addAttribute("user", u);//相当于把参数值放在request对象里面去
+		return "springMvcForm";
 	}
 	
 	/**
