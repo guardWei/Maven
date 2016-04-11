@@ -1,0 +1,13 @@
+用@ResponseBody注解
+对象
+[org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor]Written [guard.mybatis.model.User@10b55c6] as "text/html;charset=UTF-8" using [org.springframework.http.converter.json.MappingJacksonHttpMessageConverter@12c3fd4]
+List
+[org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor]Written [[guard.mybatis.model.User@1ca42a0]] as "text/html;charset=UTF-8" using [org.springframework.http.converter.json.MappingJacksonHttpMessageConverter@1dc29c2]
+字符串
+[org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor]Written [测试文字，测试] as "text/html;charset=UTF-8" using [org.springframework.http.converter.StringHttpMessageConverter@782c49]
+
+
+
+用response.getWriter.print()
+[org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Looking up handler method for path /userController/test
+[org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Returning handler method [public void guard.controller.UserController.rr(javax.servlet.http.HttpServletResponse)]

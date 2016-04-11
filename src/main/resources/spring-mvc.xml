@@ -10,44 +10,54 @@
 			http://www.springframework.org/schema/context/spring-context-3.0.xsd 
 			http://www.springframework.org/schema/mvc 
 			http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
-    <!-- <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">  
+    
+    <!--上面这个StringHttpMessageConverter用于直接用response.getWriter.print()返回字符串数据，下面这个用于@ResponseBody返回json数据 
+                    缺少其中一个将导致另外一个不能用或者乱码，特别是上面的StringHttpMessageConverter默认编码是ISO-8859-1，请查看源码
+                    参考：http://www.iteye.com/problems/78137   http://feierky.iteye.com/blog/1834933 -->
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">  
         <property name="messageConverters">  
             <list>  
                 <bean class="org.springframework.http.converter.StringHttpMessageConverter">  
                     <property name="supportedMediaTypes">  
                         <list>  
-                            <value>text/html;charset=UTF-8</value>  
+                            <value>text/html;charset=UTF-8</value><!-- 必须要，默认是ISO-8859-1 -->  
                         </list>  
                     </property>  
                 </bean>
-                <bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"></bean>  
+                <bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+					<property name="supportedMediaTypes">
+						<list>
+							<value>text/html;charset=UTF-8</value><!-- 可以不要，默认是UTF-8编码 -->
+						</list>
+					</property>
+                </bean>  
             </list>  
         </property>  
-    </bean> -->
+    </bean>
     
     <!--  mvc的注解驱动 --> 
-    <mvc:annotation-driven /> 
+    <mvc:annotation-driven /> <!-- 如果要使用@ResponseBody返回json字符串必须要配置这个 -->
     
 	<!-- 自动扫描controller包下的所有类，使其成为spring mvc的控制器(一旦有扫描器的定义mvc:annotation-driven不需要，扫描器已经有了注解驱动的功能) -->
 	<context:component-scan base-package="guard.controller" />
 
 	<!-- 避免IE执行AJAX时,返回JSON出现下载文件 -->
-	<bean id="mappingJacksonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+	<!-- <bean id="mappingJacksonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
 		<property name="supportedMediaTypes">
 			<list>
 				<value>text/html;charset=UTF-8</value>
 			</list>
 		</property>
-	</bean>
-
+	</bean> -->
+              <!-- 注意：由于上面配置的那个RequestMappingHandlerAdapter这两个配置不需要了 -->
 	<!-- 启动Spring MVC的注解功能，完成请求和注解POJO的映射 -->
-	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+	<!-- <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
 		<property name="messageConverters">
 			<list>
-				<ref bean="mappingJacksonHttpMessageConverter" /><!-- json转换器 -->
+				<ref bean="mappingJacksonHttpMessageConverter" />json转换器
 			</list>
 		</property>
-	</bean>
+	</bean> -->
 
 	<!-- 对模型视图名称的解析，即在模型视图名称添加前后缀 -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:prefix="/" p:suffix=".jsp" />
