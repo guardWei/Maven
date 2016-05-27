@@ -2,10 +2,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.guard</groupId>
-	<artifactId>Maven</artifactId>
+	<artifactId>codeRoad</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Maven Webapp</name>
+	<name>codeRoad Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<properties>
 		<project.build.sourceEncoding>
@@ -15,7 +15,8 @@
 		<spring.version>4.0.2.RELEASE</spring.version>
 		<!-- mybatis版本号 -->
 		<mybatis.version>3.3.0</mybatis.version>
-		<finalName>Maven</finalName>
+		
+		<finalName>codeRoad</finalName>
 	</properties>
 	<dependencies>
 		<!-- junit -->
@@ -180,5 +181,6 @@
             </configuration>  
          </plugin> 
 	   </plugins>
+	   <finalName>codeRoad</finalName>
 	</build>
 </project>

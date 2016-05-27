@@ -1,10 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<base href="<%=basePath%>" />
 <title>获取用户信息</title>
 </head>
 <body>
@@ -18,7 +25,7 @@
 	</br> 生日：
 	<fmt:formatDate value="${user.birthday }" pattern="yyyy/MM/dd" />
 	</br>
-	<a href="userController/editUserById?uid=${user.id }">編輯</a>
+	<a href="userController/editUserById?uid=${user.id }">编辑</a>
 	<table border="1">
 	<tr><td>课程id</td><td>课程名</td><td>任课老师</td></tr>
 		<c:forEach items="${user.uCourses }" var="couser">
