@@ -37,7 +37,7 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.7</version>
         </dependency>
-		<!-- spring 3.2 -->
+		<!-- spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
@@ -100,7 +100,7 @@
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>druid</artifactId>
-			<version>1.0.16</version>
+			<version>1.0.19</version>
 		</dependency>
         <!-- json插件 -->
 		<dependency>
