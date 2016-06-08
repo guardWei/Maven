@@ -1,0 +1,50 @@
+1.集合类之间关系
+
+Collection
+├List (允许重复项的有序集合,该接口不但能够对列表的一部分进行处理，还添加了面向位置的操作)
+│├LinkedList （底层使用Entry<E>实现，多用于插入和删除。由于提供首部或尾部操作数据，可被用作堆栈（Stack）、队列（Queue）或双向队列（Deque））
+│├ArrayList（底层使用Object[]实现，多用于查询 。实现了可变大小的数组，但是 Add 方法开销为分摊的常数，添加 N 个元素需要 O(N) 的时间，当需要插入大量元素时，在插入前可以调用 ensureCapacity(minCapacity)方法来增加 ArrayList 的容量以提高插入效率）
+│└Vector（数组Object[]实现，是线程同步的，多用于查询 ）
+│　└Stack （实现一个后进先出的堆栈，Stack提供5个额外的方法使得Vector得以被当作堆栈使用。基本的push和pop方法，还有peek方法得到栈顶的元素，empty方法测试堆栈是否为空，search方法检测一个元素在堆栈中的位置。Stack刚创建后是空栈）
+└Set(底层主要是Map实现，元素不能重复,Set 最多有一个 null 元素)
+ ├HashSet（底层使用HashMap<E,Object>实现）
+ ├TreeSet(SortedSet的子类，它不同于HashSet的根本就是TreeSet是有序的。它是通过SortedMap来实现的。)
+ └SortedSet(特殊的Set接口,保持元素的有序顺序。添加到SortedSet实现类的元素必须实现Comparable接口，否则您必须给它的构造函数提供一个Comparator接口的实现。TreeSet类是它的唯一一份实现)
+
+Map
+├Hashtable（实现了一个基于 Key-Value 映射的哈希表，线程安全，元素不可为空,任何非空（non-null）的对象都可作为 Key 或者 Value）
+├HashMap （底层Entry[]实现，无序性，线程非同步的,元素可为空,即 Null Value 和 Null Key ）
+├LinkedHashMap （继承自 HashMap，具有高效性，同时在 HashMap 的基础上，又在内部增加了一个链表，用以存放元素的顺序）
+├WeakHashMap(线程不同步的,WeakHashMap 是一种改进的 HashMap，它对 Key 实行“弱引用”，如果一个 Key 不再被外部所引用，那么该 Key 可以被 GC 回收)
+└TreeMap（提供了一种完全不同的 Map 实现，比 HashMap 更为强大的功能，它实现了 SortedMap 接口，这意味着它可以对元素进行排序。TreeMap 的性能略微低于 HashMap。如果在开发中需要对元素进行排序，那么使用 HashMap 便无法实现这种功能，使用 TreeMap 的迭代输出将会以元素顺序进行。LinkedHashMap 是基于元素进入集合的顺序或者被访问的先后顺序排序，TreeMap 则是基于元素的固有顺序 (由 Comparator 或者 Comparable 确定)）
+
+
+所有实现 Collection 接口的类都必须提供两个标准的构造函数，无参数的构造函数用于创建一个空的 Collection，
+有一个 Collection 参数的构造函数用于创建一个新的 Collection，这个新的 Collection 与传入的 Collection 有相同的元素，后一个构造函数允许用户复制一个 Collection
+
+
+ArrayList类封装了一个动态再分配的Object[]数组。每个ArrayList对象有一个capacity。
+这个capacity表示存储列表中元素的数组的容量。当元素添加到ArrayList时，它的capacity
+在常量时间内自动增加。 
+在向一个ArrayList对象添加大量元素的程序中，可使用ensureCapacity方法增加capacity。
+这可以减少增加重分配的数量，可以提高效率
+
+
+
+HashMap 是将 Key 做 Hash 算法，然后将 Hash 值映射到内存地址，直接取得 Key 所对应的数据。在 HashMap 中，底层数据结构使用的是数组，所谓的内存地址即数组的下标索引。
+HashMap 的高性能需要保证以下几点：
+
+1、Hash 算法必须是高效的；
+2、Hash 值到内存地址 (数组索引) 的算法是快速的；
+3、根据内存地址 (数组索引) 可以直接取得对应的值。
+
+HashMap 实际上是一个链表的数组。前面已经介绍过，基于 HashMap 的链表方式实现机制，只要 HashCode() 和 Hash() 方法实现得足够好，能够尽可能地减少冲突的产生，
+那么对 HashMap 的操作几乎等价于对数组的随机访问操作，具有很好的性能。但是，如果 HashCode() 或者 Hash() 方法实现较差，在大量冲突产生的情况下，
+HashMap 事实上就退化为几个链表，对 HashMap 的操作等价于遍历链表，此时性能很差。
+
+LinkedHashMap 是根据元素增加或者访问的先后顺序进行排序，而 TreeMap 则根据元素的 Key 进行排序。
+
+Hastable实现Map 由于作为 Key 的对象将通过计算其散列函数来确定与之对应的 Value 的位置，因此任何作为 key 的对象都必须实现 HashCode 和 Equals 方法。
+HashCode 和 Equals 方法继承自根类 Object，如果你用自定义的类当作 Key 的话，要相当小心，按照散列函数的定义，如果两个对象相同，即 obj1.equals(obj2)=true，则它们的 HashCode 必须相同，
+但如果两个对象不同，则它们的 HashCode 不一定不同，如果两个不同对象的 HashCode 相同，这种现象称为冲突，冲突会导致操作哈希表的时间开销增大，所以尽量定义好的 HashCode() 方法，能加快哈希表的操作。
+如果相同的对象有不同的 HashCode，对哈希表的操作会出现意想不到的结果（期待的 Get 方法返回 Null），要避免这种问题，最好同时复写 Equals 方法和 HashCode 方法，而不要只写其中一个。
