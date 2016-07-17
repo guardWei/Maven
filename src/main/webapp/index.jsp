@@ -19,4 +19,4 @@
 <a href="<%=basePath%>getUserById.jsp">查询用户信息 </a><br/><br/>
 <a href="<%=basePath%>fileUplode.jsp">文件上传 </a>
 </body>
-</htm
+</html>
