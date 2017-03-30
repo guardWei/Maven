@@ -150,7 +150,24 @@
 		   <groupId>org.apache.tomcat</groupId>
 			<artifactId>tomcat-jdbc</artifactId>
 			<version>8.0.9</version>
-	    </dependency>
+		</dependency>
+		
+		<!-- Activemq -->
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-core</artifactId>
+			<version>5.4.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-web</artifactId>
+			<version>5.4.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-pool</artifactId>
+			<version>5.4.2</version>
+		</dependency>
 	</dependencies>
 	<build>
 	  <plugins>
