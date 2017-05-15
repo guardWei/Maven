@@ -63,31 +63,50 @@
 	
 	
 	<!-- 激活Tomcat的defaultServlet来处理静态文件,防止被springMvc的DispatcherServlet拦截导致静态资源访问不到 -->
-	<servlet-mapping>  
-        <servlet-name>default</servlet-name>  
-        <url-pattern>*.css</url-pattern>  
-    </servlet-mapping>  
-  
-    <servlet-mapping>  
-        <servlet-name>default</servlet-name>  
-        <url-pattern>*.gif</url-pattern>  
-  
-    </servlet-mapping>  
-  
-    <servlet-mapping>  
-        <servlet-name>default</servlet-name>  
-        <url-pattern>*.jpg</url-pattern>  
-    </servlet-mapping>
-    
-    <servlet-mapping>  
-        <servlet-name>default</servlet-name>  
-        <url-pattern>*.png</url-pattern>  
-    </servlet-mapping>  
-  
-    <servlet-mapping>  
-        <servlet-name>default</servlet-name>  
-        <url-pattern>*.js</url-pattern>  
-    </servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.css</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.gif</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.jpg</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.png</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.js</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.html</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.htm</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.xml</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.zip</url-pattern>
+	</servlet-mapping>
 	
 	
 	<!-- spring mvc servlet -->

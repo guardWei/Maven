@@ -125,6 +125,12 @@
 			<artifactId>servlet-api</artifactId>
 			<version>3.0-alpha-1</version>
 		</dependency>
+		<!-- javaee-api -->
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>7.0</version>
+		</dependency>
 		<!-- jstl -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
