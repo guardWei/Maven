@@ -176,7 +176,22 @@
 		</dependency>
 	</dependencies>
 	<build>
-	  <plugins>
+		<!--解决IDEA中src下xml等资源无法打包的问题http://blog.csdn.net/shifangwannian/article/details/48882201-->
+		<resources>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.xml</include>
+				</includes>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>**/*.*</include>
+				</includes>
+			</resource>
+		</resources>
+		<plugins>
 	  <!-- Compiler 插件, 设定JDK版本 -->
 		<plugin>
 			<groupId>org.apache.maven.plugins</groupId>
