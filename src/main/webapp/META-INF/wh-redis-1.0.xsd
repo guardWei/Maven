@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://www.guard.org/schema/wh"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://www.guard.org/schema/wh"
+            elementFormDefault="qualified"
+            attributeFormDefault="unqualified">
+    <xsd:element name="redis">
+        <xsd:complexType>
+            <xsd:attribute name="id" type="xsd:string" use="required"></xsd:attribute>
+            <xsd:attribute name="ip" type="xsd:string" use="required"></xsd:attribute>
+            <xsd:attribute name="port" type="xsd:string" default="6379"></xsd:attribute>
+            <xsd:attribute name="auth" type="xsd:string" default=""></xsd:attribute>
+        </xsd:complexType>
+    </xsd:element>
+
+</xsd:schema>
