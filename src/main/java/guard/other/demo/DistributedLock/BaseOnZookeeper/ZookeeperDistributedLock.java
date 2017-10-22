@@ -108,3 +108,14 @@ public class ZookeeperDistributedLock implements Lock {
         return null;
     }
 }
+/*
+    zookeeper典型应用场景
+    1.数据发布订阅
+    2.负载均衡
+    3.命名服务
+    4.Matser选举
+    5.集群管理
+    6.配置管理
+    7.分布式队列
+    8.分布式锁
+ */
